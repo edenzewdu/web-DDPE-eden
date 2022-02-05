@@ -2,11 +2,36 @@
 <html>
  <head>
   <title>life hacks index.pdf</title>
-<script type="text/javascript" src="externaljs.js"></script>
+//<script type="text/javascript" src="externaljs.js"></script>
   <meta charset="UTF-8">
   <meta name=" description" content="life-hacks">
   <meta name=" key words" content="Life, Life hacks, Jack Ma, Eric Hoffer, Power of Self-Education, Overcame Failure">
- </head>
+ <script>
+function User(planeName){
+this.name=planeName;
+this.print=function(){
+document.getElementById("txt").innerHTML=this.name+" ";
+}
+}
+var UserMe=new User("txt");
+
+User.prototype.info=function(){
+var i=document.getElementById("name").value;
+var j=document.getElementById("phone").value;
+var k=document.getElementById("age").value;
+var p=document.getElementById("color").value;
+var l=document.getElementById("birthdate").value;
+var n=document.getElementById("skills").checked;
+var o=document.getElementById("country").value;
+document.getElementById("txt").innerHTML="<h1>Registered</h1>\n<h2>Welcome "+i+"</h2>\n<b>Your full info</b>\nName: <i>"+i+"</i>\nPhone Number: "+j+"\nYou are: "+k+" years old"+"\nYour favourite color: 'airplane'"+p+"\nBirthdate: "+l+"\nSkills: "+n+"\nCountry: "+o;
+var pre=document.getElementById("data");
+var arr=pre.childNodes;
+for(var x=0;x<(arr.length-4);x++){
+arr[x].innerHTML=" ";}
+}
+
+</script>
+</head>
  <body>
   <table width="100%">
    <tr>
@@ -28,26 +53,21 @@
                 <td colspan="2" align="right" ><a href="gotobottum.html">Go To bottum</a></td>  
                 <td width="10%"></td>
             </tr>
+<pre id="txt" onclick="UserMe.print()"><\>
             <tr>
                 <br>
                 <td width="10%"></td>
                 <td width="60%">
                 <h1>Register</h1>
-  		<form action ="" method="post">
- 		 Full Name<br> <input type="text" id="name" onchange="change()" maxlength="50" required size="50"/>
-<script>
-function change(){
-var x =document.getElementById("name");
-x.value=x.value.toUpperCase();}
-</script>
+ 		 Full Name<br> <input type="text" id="name" maxlength="50" required size="50"/>
 <br /><br />
-                 Phone<br><input type="number" name="tel" required size="50"/>
+                 Phone<br><input type="number" id="phone" name="tel" required size="50"/>
 <br /><br />
-		 age<br><input type="number " name="age" min="18" max="20" required/>
+		 age<br><input type="number " id="age" name="age" min="18" max="20" required/>
 <br /><br />
-		 your Favorite color<br> <input type="color" name="color" value="green" />
+		 your Favorite color<br> <input type="color" id="color" name="color" value="green" />
 <br /><br />
-		 Birthdate<br> <input type="date" name="birthdate" minlength="6" maxlength="32" placeholder="Password"required/>
+		 Birthdate<br> <input type="date" id="birthdate" name="birthdate" minlength="6" maxlength="32" placeholder="Password"required/>
 <br /><br />
 		 Gender <br>
  Female <input type="radio" name="gender" />
@@ -58,7 +78,7 @@ x.value=x.value.toUpperCase();}
 		 Confirm password <br><input type="password" name="password" minlength="6" maxlength="32" placeholder="Password" required size="50"/>
 <br /><br />
  		 Skills 
-<ul type="square">
+<ul type="square" id="skills">
 <li><input type="checkbox" name="skills" value="on">HTML</li><br>
 <li><input type="checkbox" name="skills" value="on">CSS</li><br>
 <li><input type="checkbox" name="skills" value="on">JavaScript</li><br>
@@ -66,7 +86,7 @@ x.value=x.value.toUpperCase();}
 </ul>
 <br /><br />
 		 country<br>
-<select name ="dropdown">
+<select name ="dropdown" id="country">
 <option value="Ethiopia" selected> Ethiopia</option>
 <option value="Ethiopia" > Keniya</option>
 <option value="Ethiopia" > Ertrea</option>
@@ -76,10 +96,9 @@ x.value=x.value.toUpperCase();}
 <br /><br />
 		 describe yourself<br> <textarea rows ="10" cols="50" name="description"></textarea>
 <br /><br />
-                 <input type ="submit" name="Submit" value="Submit" onclick="alert('button clicked')"/>
+                 <button onclick="UserMe.info()">Submit</button>
                  <input type ="reset" name="Reset" value="Reset"/>
 <br />
-  		</form>
 </td>
                <td width="20%">
 <h2>Recent Posts</h2>
